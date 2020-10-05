@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Button} from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import SingleCard from '../SingleCard/SingleCard';
 
@@ -11,7 +11,7 @@ const VolunteerOptions = () => {
     const joinCampaignHandler = (activity) => {
 
         const activityName = activity.title;
-        
+
         console.log('join campaign clicked');
         console.log(activityName);
 
@@ -20,7 +20,7 @@ const VolunteerOptions = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/loadAll')
+        fetch('https://guarded-peak-99397.herokuapp.com/loadAll')
             .then(response => response.json())
             .then(data => {
                 const arr = [...data];
@@ -44,7 +44,7 @@ const VolunteerOptions = () => {
 
             {
                 allOptions.map((singleOption) =>
-                    <SingleCard key ={singleOption._id} item={singleOption}>
+                    <SingleCard key={singleOption._id} item={singleOption}>
                         <Button onClick={() => { joinCampaignHandler(singleOption) }} variant="primary">Join Campaign</Button>
                     </SingleCard>
                 )

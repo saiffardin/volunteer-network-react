@@ -12,7 +12,7 @@ const Events = () => {
     const email = loggedInUser.email;
 
     useEffect(() => {
-        fetch(`http://localhost:5000/find/:${email}`)
+        fetch(`https://guarded-peak-99397.herokuapp.com/find/:${email}`)
             .then(res => res.json())
             .then(data => {
                 // console.log(data);
@@ -27,11 +27,11 @@ const Events = () => {
         // /delete/:id
 
         const id = activity._id;
-        console.log('id:',id);
+        console.log('id:', id);
 
-        
 
-        fetch(`http://localhost:5000/delete/${id}`, { method: 'DELETE' })
+
+        fetch(`https://guarded-peak-99397.herokuapp.com/delete/${id}`, { method: 'DELETE' })
             .then((res) => res.json())
             .then((data) => {
                 console.log('deleted successfully');

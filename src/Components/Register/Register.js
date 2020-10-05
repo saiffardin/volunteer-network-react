@@ -41,7 +41,7 @@ const Register = () => {
             // console.log(newReg);
 
             //call add to reg API
-            fetch('http://localhost:5000/addNewReg', {
+            fetch('https://guarded-peak-99397.herokuapp.com/addNewReg', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(newReg)
