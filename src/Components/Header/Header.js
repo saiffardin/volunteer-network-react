@@ -13,6 +13,10 @@ const Header = () => {
         history.push('/');
     }
 
+    const goEvents = () => {
+        history.push('/Events');
+    }
+
     return (
         <div>
             <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
@@ -33,7 +37,7 @@ const Header = () => {
                         <Nav.Link className="mx-2" onClick={goHome}>Home</Nav.Link>
 
                         <Nav.Link className="mx-2" href="">Donation</Nav.Link>
-                        <Nav.Link className="mx-2" href="">Events</Nav.Link>
+                        <Nav.Link className="mx-2" onClick={goEvents}>Events</Nav.Link>
                         <Nav.Link className="mx-2" href="">Blog</Nav.Link>
 
 

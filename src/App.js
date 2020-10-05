@@ -12,6 +12,7 @@ import {
 import Login from './Components/Login/Login';
 import Register from './Components/Register/Register';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
+import Events from './Components/Events/Events';
 
 
 export const UserContext = createContext();
@@ -38,6 +39,10 @@ function App() {
 
                     <PrivateRoute exact path='/Register/:activityName'>
                         <Register></Register>
+                    </PrivateRoute>
+
+                    <PrivateRoute exact path='/Events'>
+                        <Events></Events>
                     </PrivateRoute>
 
                     <Route path='*'>

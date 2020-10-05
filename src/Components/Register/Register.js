@@ -13,15 +13,19 @@ const Register = () => {
 
     let email = loggedInUser.email;
     let name = loggedInUser.displayName;
-
-    console.log('activityName : ', activityName);
-    console.log('Name : ', name);
-    console.log('Email : ', email);
-
-    // let destination = props.destination;
+    let date = '';
+    let description = '';
 
 
+    const handleBlur = (e) => {
+        if (e.target.name === 'date') {
+            date = e.target.value
+        }
 
+        else if (e.target.name === 'description') {
+            description = e.target.value
+        }
+    }
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -29,12 +33,26 @@ const Register = () => {
 
         setValidated(form.checkValidity());
 
-        console.log('validate form: ', form.checkValidity());
-        console.log('validate: ', validated);
-
         if (form.checkValidity()) {
-            // history.push('/afterLogin');
-            console.log("Goto next page : After Reg");
+
+            // console.log("Goto next page : After Reg");
+            const newReg = { name, email, date, description, activityName };
+
+            // console.log(newReg);
+
+            //call add to reg API
+            fetch('http://localhost:5000/addNewReg', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(newReg)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log("Registration Clicked. And got stuff from API.");
+                    // console.log(data)
+                })
+
+            history.push(`/Events`);
 
         }
         else {
@@ -94,7 +112,8 @@ const Register = () => {
                         <Form.Control
                             required
                             type="date"
-                        // onBlur={}
+                            onBlur={handleBlur}
+                            name="date"
                         />
                         <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                     </Form.Group>
@@ -107,6 +126,8 @@ const Register = () => {
                         <Form.Control
                             required
                             type="text"
+                            onBlur={handleBlur}
+                            name="description"
                         />
                         <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                     </Form.Group>

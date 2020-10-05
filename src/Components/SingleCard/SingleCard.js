@@ -1,12 +1,12 @@
 import React from 'react';
-import { Button, Card } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 
 const SingleCard = props => {
 
     const { img, title } = props.item;
 
-    console.log(img);
-    console.log(title);
+    // console.log(img);
+    // console.log(title);
 
 
     return (

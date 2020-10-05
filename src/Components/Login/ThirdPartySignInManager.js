@@ -32,14 +32,14 @@ const firebaseAuth = (provider) => {
         .then((result) => {
 
             console.log("Successfully Logged In");
-            console.log(result.user);
+            // console.log(result.user);
 
             // let token = result.credential.accessToken;
 
             let { displayName, email } = result.user;
 
-            console.log(displayName);
-            console.log(email);
+            // console.log(displayName);
+            // console.log(email);
 
             const newUserInfo = {
                 uid: result.user.uid,
@@ -48,7 +48,7 @@ const firebaseAuth = (provider) => {
                 isSignedIn: true,
             };
 
-            console.log(newUserInfo);
+            // console.log(newUserInfo);
 
             return (newUserInfo);
 
