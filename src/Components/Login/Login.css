@@ -4,3 +4,16 @@
   width: 600px;
   margin: 100px auto;
 }
+
+
+
+/* Mobile --> when the width gets larger than 480px. */
+@media only screen and (max-width: 480px) {
+  .login-div img {
+    width: 30px !important;
+  }
+
+  .login-div h5 {
+    font-size: 1rem;
+  }
+}

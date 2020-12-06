@@ -16,7 +16,7 @@ const Login = () => {
 
     const styleThirdParty = {
         border: '1px solid lightgray',
-        width: '400px',
+        // width: '400px',
         margin: '30px auto',
         borderRadius: '50px',
         cursor: 'pointer',
@@ -35,7 +35,7 @@ const Login = () => {
 
 
     return (
-        <div className={'login-div  d-flex flex-column justify-content-center align-items-center'}>
+        <div className={'login-div col d-flex flex-column justify-content-center align-items-center'}>
             <h2>Login With</h2>
             <div style={styleThirdParty} >
                 <h5 className='my-2 mx-5' onClick={googleHandler}>

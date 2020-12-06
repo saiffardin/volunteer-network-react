@@ -3,6 +3,12 @@ import { Button, Nav, Navbar } from 'react-bootstrap';
 import { Link, useHistory } from 'react-router-dom';
 import { UserContext } from '../../App';
 
+// Firebase App (the core Firebase SDK) is always required and
+// must be listed before other Firebase SDKs
+import * as firebase from "firebase/app";
+
+import './Header.css';
+
 const Header = () => {
 
     const history = useHistory();
@@ -17,8 +23,25 @@ const Header = () => {
         history.push('/Events');
     }
 
+    const logOutHandle = () => {
+        console.log('log out');
+
+        firebase.auth().signOut().then(function () {
+            // Sign-out successful.
+            // console.log('Sign-out successful.');
+            // console.log(loggedInUser);
+            // loggedInUser.isSignedIn = false;
+            history.push('/Login') ;
+            window.location.reload();
+            
+        }).catch(function (error) {
+            // An error happened.
+            console.log('log out - Jhamela Occur');
+        });
+    }
+
     return (
-        <div>
+        <div className='header-div'>
             <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
                 {/* <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand> */}
                 <Navbar.Brand href="#home">
@@ -29,8 +52,12 @@ const Header = () => {
                         alt="React Bootstrap logo"
                     />
                 </Navbar.Brand>
+
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                <Navbar.Collapse id="responsive-navbar-nav">
+
+                <Navbar.Collapse id="responsive-navbar-nav"
+                    className='text-center'
+                >
 
                     <Nav className="ml-auto">
                         {/* <Link to='/' style={{textDecoration:'none'}}>Home</Link> */}
@@ -43,11 +70,15 @@ const Header = () => {
 
                         {
                             loggedInUser.isSignedIn
-                                ? <Button variant="dark" className="mx-2">{loggedInUser.displayName}</Button>
+                                ?
+                                <div>
+                                    <Button variant="danger" className="mx-2" onClick={logOutHandle}>Log Out</Button>
+                                    
+                                </div>
 
-                                : <Link to="/">
-                                    <Button className="mx-2" variant="dark">Admin</Button>
-                                </Link>
+                                :
+                                <Button className="mx-2" variant="dark" onClick={goEvents}>Log In</Button>
+
                         }
                     </Nav>
                 </Navbar.Collapse>
