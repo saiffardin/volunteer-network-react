@@ -44,3 +44,40 @@ A site where people can take-part/register for various volunteering activities a
 [Visit Live Site](https://assignment-10-jm.web.app/)
 
 [Visit Back-End Repository](https://github.com/saiffardin/volunteer-network-server)
+
+
+---
+
+### `Screenshots:`
+
+Landing Page : Laptop
+![Laptop](./screenshots/1.jpg)
+
+---
+
+
+Landing Page : Tablet
+![Tablet](./screenshots/2.jpg)
+
+---
+
+Landing Page : Large Mobile
+![Mobile(L)](./screenshots/3.jpg)
+
+
+---
+
+Log In
+![log in](./screenshots/4.jpg)
+
+---
+
+Registration Form
+![Registration Form](./screenshots/5.png)
+
+---
+
+Events
+![events](./screenshots/6.png)
+
+---
