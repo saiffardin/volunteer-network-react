@@ -1,14 +1,14 @@
-import React, { useContext, useState } from 'react';
-import { Button, Col, Form } from 'react-bootstrap';
-import { useHistory, useParams } from 'react-router-dom';
-import { UserContext } from '../../App';
+import React, {useContext, useState} from 'react';
+import {Button, Col, Form} from 'react-bootstrap';
+import {useHistory, useParams} from 'react-router-dom';
+import {UserContext} from '../../App';
 
 const Register = () => {
 
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const [validated, setValidated] = useState(false);
 
-    let { activityName } = useParams();
+    let {activityName} = useParams();
     let history = useHistory();
 
     let email = loggedInUser.email;
@@ -36,14 +36,14 @@ const Register = () => {
         if (form.checkValidity()) {
 
             // console.log("Goto next page : After Reg");
-            const newReg = { name, email, date, description, activityName };
+            const newReg = {name, email, date, description, activityName};
 
             // console.log(newReg);
 
             //call add to reg API
-            fetch('https://guarded-peak-99397.herokuapp.com/addNewReg', {
+            fetch('https://volunteer-network-server.up.railway.app/addNewReg', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(newReg)
             })
                 .then(res => res.json())
@@ -83,7 +83,7 @@ const Register = () => {
                             required
                             type="text"
                             defaultValue={name}
-                            style={{ fontWeight: "bold" }}
+                            style={{fontWeight: "bold"}}
                         />
                         <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                     </Form.Group>
@@ -98,7 +98,7 @@ const Register = () => {
                             required
                             type="email"
                             defaultValue={email}
-                            style={{ fontWeight: "bold" }}
+                            style={{fontWeight: "bold"}}
 
                         />
                         <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
@@ -143,14 +143,14 @@ const Register = () => {
                             required
                             type="text"
                             defaultValue={activityName}
-                            style={{ fontWeight: "bold" }}
+                            style={{fontWeight: "bold"}}
                         />
                         <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                     </Form.Group>
                 </Form.Row>
 
 
-                <Button style={{ width: '100%' }} type="submit">Registration</Button>
+                <Button style={{width: '100%'}} type="submit">Registration</Button>
 
             </Form>
         </div>

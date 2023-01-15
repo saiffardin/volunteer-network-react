@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { Button } from 'react-bootstrap';
-import { useHistory } from 'react-router-dom';
+import React, {useEffect, useState} from 'react';
+import {Button} from 'react-bootstrap';
+import {useHistory} from 'react-router-dom';
 import SingleCard from '../SingleCard/SingleCard';
 
 const VolunteerOptions = () => {
@@ -20,7 +20,7 @@ const VolunteerOptions = () => {
 
 
     useEffect(() => {
-        fetch('https://guarded-peak-99397.herokuapp.com/loadAll')
+        fetch('https://volunteer-network-server.up.railway.app/loadAll')
             .then(response => response.json())
             .then(data => {
                 const arr = [...data];
@@ -45,7 +45,7 @@ const VolunteerOptions = () => {
             {
                 allOptions.map((singleOption) =>
                     <SingleCard key={singleOption._id} item={singleOption}>
-                        <Button onClick={() => { joinCampaignHandler(singleOption) }} variant="primary">Join Campaign</Button>
+                        <Button onClick={() => {joinCampaignHandler(singleOption)}} variant="primary">Join Campaign</Button>
                     </SingleCard>
                 )
             }
