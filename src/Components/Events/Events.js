@@ -1,6 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { Button } from 'react-bootstrap';
-import { UserContext } from '../../App';
+import React, {useContext, useEffect, useState} from 'react';
+import {Button} from 'react-bootstrap';
+import {UserContext} from '../../App';
 import SingleEvent from '../SingleEvent/SingleEvent';
 
 
@@ -12,7 +12,7 @@ const Events = () => {
     const email = loggedInUser.email;
 
     useEffect(() => {
-        fetch(`https://guarded-peak-99397.herokuapp.com/find/:${email}`)
+        fetch(`https://volunteer-network-server.up.railway.app/find/:${email}`)
             .then(res => res.json())
             .then(data => {
                 // console.log(data);
@@ -31,7 +31,7 @@ const Events = () => {
 
 
 
-        fetch(`https://guarded-peak-99397.herokuapp.com/delete/${id}`, { method: 'DELETE' })
+        fetch(`https://volunteer-network-server.up.railway.app/delete/${id}`, {method: 'DELETE'})
             .then((res) => res.json())
             .then((data) => {
                 console.log('deleted successfully');
@@ -46,7 +46,7 @@ const Events = () => {
                     ?
                     activities.map((activity) =>
                         <SingleEvent key={activity._id} activity={activity}>
-                            <Button onClick={() => { cancelEvent(activity) }} variant="danger">Cancel</Button>
+                            <Button onClick={() => {cancelEvent(activity)}} variant="danger">Cancel</Button>
                         </SingleEvent>
                     )
                     :
